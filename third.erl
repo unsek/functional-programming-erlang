@@ -1,5 +1,5 @@
 -module(third).
--export([max_three/3, how_many_equal/3]).
+-export([max_three/3, how_many_equal/3, xOr/3]).
 
 %% @doc Returns the maximum number amongst the three arguments
 max_three(A, A, A) ->
@@ -30,3 +30,13 @@ how_many_equal(_, [], Matches) ->
 how_many_equal(A, B, C) ->
   Nums = lists:sort([B, C]),
   how_many_equal(A, Nums, 0).
+
+%% @doc Implementation for XOR
+xOr(inequality_op, A, B) ->
+  A =/= B;
+
+xOr(not_op, A, B) ->
+  not (A==B);
+
+xOr(greater_or_lesser, A, B) ->
+  A > B orelse A < B.
