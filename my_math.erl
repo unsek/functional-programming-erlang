@@ -14,15 +14,12 @@ fib(0, _Prev, Current) ->
 fib(N, Prev, Current) ->
   fib(N - 1, Current, Prev + Current).
 
-pieces(two_dimension, 1) ->
-  2;
+pieces(_, 1) ->
+  2; % One cut is 2 pieces
 
 %% @doc Returns the maximum number of pieces for N cuts in a plane
 pieces(two_dimension, N) ->
   N + pieces(two_dimension, N - 1);
-
-pieces(three_dimension, 1) ->
-  2;
 
 %% @doc Returns the maximum number of pieces for N cuts in a 3D space
 pieces(three_dimension, N) ->
