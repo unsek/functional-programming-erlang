@@ -1,5 +1,5 @@
 -module(fourth).
--export([how_many_equal/3]).
+-export([how_many_equal/3, fac/1]).
 
 how_many_equal(A, A, A) ->
   3;
@@ -16,3 +16,9 @@ sorted_how_many_equal(_, X, X) ->
 
 sorted_how_many_equal(_, _, _) ->
   0.
+
+fac(0) ->
+  1;
+
+fac(N) ->
+  N * fac(N-1).
